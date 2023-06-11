@@ -6,3 +6,9 @@
 - Jashan
 - Pranav
 - Denise
+
+## How to
+
+Make sure you have npx and Node.js installed.
+Be in the correct directory and run:
+`npm start`
