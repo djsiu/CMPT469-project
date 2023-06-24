@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+
+p{
+  color: rgb(220, 249, 250);
+  margin: 0px;
+  font-family: Days One;
+}
+
+.white-line{
+  margin-top: 4px;
+  height: 2px;
+  width: 100%;
+  background-color: rgb(220, 249, 250);
+}
