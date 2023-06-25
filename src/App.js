@@ -10,8 +10,8 @@ function App() {
 					<iframe className="current-youtube-video"
 						src="https://www.youtube.com/embed/videoseries?list=PLUt2ZbkV3lGG_ys0_GxDOQmgLHi6-VZyY"
 						title="YouTube video player"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					></iframe>
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"/>
+					<div className="current-video-tint"/>
 					<p className="upper-left-text">100.00 100.00 42.15</p>
 					<p className="upper-left-text-2">47.00 100.00 74.00</p>
 					<p className="upper-middle-text">1108
@@ -26,11 +26,21 @@ function App() {
 				</div>
 				<div className="scenes-grid">
 					{/* change these areas to be stills from the scene. not sure hwo to go about this*/}
-					<img className="test-current-youtube-video" src={placeholderimage}/>
-					<img className="test-current-youtube-video" src={placeholderimage}/>
-					<img className="test-current-youtube-video" src={placeholderimage}/>
-					<img className="test-current-youtube-video" src={placeholderimage}/>
-					<img className="test-current-youtube-video" src={placeholderimage}/>
+					<div className="test-current-youtube-video-tint">
+						<img className="test-current-youtube-video" src={placeholderimage}/>
+					</div>
+					<div className="test-current-youtube-video-tint">
+						<img className="test-current-youtube-video" src={placeholderimage}/>
+					</div>
+					<div className="test-current-youtube-video-tint">
+						<img className="test-current-youtube-video" src={placeholderimage}/>
+					</div>
+					<div className="test-current-youtube-video-tint">
+						<img className="test-current-youtube-video" src={placeholderimage}/>
+					</div>
+					<div className="test-current-youtube-video-tint">
+						<img className="test-current-youtube-video" src={placeholderimage}/>
+					</div>
 				</div>
 				<div className="bottom-content">
 					<div className="white-line"/>
