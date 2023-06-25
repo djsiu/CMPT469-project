@@ -5,6 +5,43 @@
   flex-direction: column;
 }
 
+.current-video{
+  position: relative;
+}
+
+.upper-middle-text,
+.upper-left-text-2,
+.upper-left-text{
+  position: absolute;
+  font-size: 14px;
+  top: 50px;
+  left: 25px;
+}
+
+.upper-left-text-2{
+  top: 70px;
+  left: 33px;
+}
+
+.upper-middle-text{
+  left: 45%;
+}
+
+.custom-middle-text{
+  font-size: 18px;
+}
+
+.timer-text{
+  position: absolute;
+  font-size: 14px;
+  top: 50px;
+  right: 33px;
+}
+
+.seconds-text{
+  font-size: 10px;
+}
+
 .current-youtube-video{
   margin-top: 30px;
   width: 100%;
@@ -27,6 +64,29 @@
 
 .bottom-text{
   position: absolute;
-  right: 100px;
-  bottom: 25px;
+  right: 63px;
+  bottom: 9.5px;
+}
+
+.bottom-rectangle{
+  position: absolute;
+  right: 20.7px;
+  bottom: 30px;
+  width: 40px;
+  height: 16px;
+  border-radius: 2px;
+  background-color: #D5FBFE;
+}
+
+.bottom-triangle{
+  position: absolute;
+  right: -25px;
+  bottom: -2px;
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 16px solid #D5FBFE;
+  border-radius: 2px;
+  margin: 2rem;
 }
