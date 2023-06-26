@@ -6,20 +6,35 @@ import horizontalTimer from "./media/IMG_0827.PNG";
 import horizontalTimerTop from "./media/IMG_0829.PNG";
 import horizontalTimerTopSeconds from "./media/IMG_0830.PNG";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from 'react';
 
 let videoElement = null;
+let i = 0;
+const listSize = 3;
+
+const videoIds = ['aGWQYgZZEEQ','MorgTWuIECg','xtXdKETotbc']
+var videoId = videoIds[i]
 function App() {
 	
+	const [videoId, setVideoId] = useState(videoIds[0])
 	const opts = {
 	  height: "650px",
 	  width: "100%",
 	  playerVars: {
 	  }
 	};
-  
+	
 	const _onReady = (event) => {
 	  videoElement = event;
 	};
+	const _onEnd = (event) => {
+		if (i + 1 >= listSize)
+			i = 0
+		else 
+			i += 1
+		setVideoId(videoIds[i]);
+
+	}
 
 	function handleInput(event){
 		if(event.key === 'z')
@@ -37,7 +52,7 @@ function App() {
 	return (
 			<div className="video-player-background" onKeyDown={handleInput} tabIndex={0}>
 				<div className="current-video">
-					<YouTube className="current-youtube-video" videoId={"aGWQYgZZEEQ"} opts={opts} onReady={_onReady} />
+					<YouTube className="current-youtube-video" videoId={videoId} opts={opts} onReady={_onReady} onEnd={_onEnd} />
 					{/* <iframe className="current-youtube-video"
 						src="https://www.youtube.com/embed/videoseries?list=PLUt2ZbkV3lGG_ys0_GxDOQmgLHi6-VZyY"
 						title="YouTube video player"
