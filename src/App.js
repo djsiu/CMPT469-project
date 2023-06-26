@@ -1,3 +1,6 @@
+import React, {useState, useEffect} from "react";
+import YT from 'react-youtube'
+import YouTube, { YouTubePlayer }  from 'react-youtube'
 import "./styles/App.css";
 import "./styles/General.css";
 import placeholderimage from "./media/placeholder-picture.png";
@@ -6,14 +9,38 @@ import horizontalTimerTop from "./media/IMG_0829.PNG";
 import horizontalTimerTopSeconds from "./media/IMG_0830.PNG";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+let videoElement = null;
 function App() {
+	
+	const opts = {
+	  height: "650px",
+	  width: "100%",
+	  playerVars: {
+		autoplay: 1
+	  }
+	};
+  
+	const _onReady = (event) => {
+	  videoElement = event;
+	};
+
+	function handleInput(event){
+		if(event.key === 'z')
+		{	
+			console.log('Play')
+			videoElement.target.playVideo();
+		}
+		else if(event.key === 'x')
+		{
+			videoElement.target.pauseVideo();
+			console.log('Pause')
+		}
+	}
+
 	return (
-			<div className="video-player-background">
+			<div className="video-player-background" onKeyDown={handleInput} tabIndex={0}>
 				<div className="current-video">
-					<iframe className="current-youtube-video"
-						src="https://www.youtube.com/embed/videoseries?list=PLUt2ZbkV3lGG_ys0_GxDOQmgLHi6-VZyY"
-						title="YouTube video player"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"/>
+					<YouTube videoId={"aGWQYgZZEEQ"} opts={opts} onReady={_onReady} />
 					<div className="current-video-tint"/>
 					<p className="upper-left-text">100.00 100.00 42.15</p>
 					<p className="upper-left-text-2">47.00 100.00 74.00</p>
@@ -61,3 +88,4 @@ function App() {
 }
 
 export default App;
+
