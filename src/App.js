@@ -58,10 +58,9 @@ function App() {
 					<div className="white-line">
 					<img className="bottom-horizontal-timer" src={horizontalTimer}/>
 					</div>
-					{/* add details for timer here */}
 				</div>
 				<div className="scenes-grid">
-					{/* change these areas to be stills from the scene. not sure hwo to go about this*/}
+					{/* change these areas to be stills from the scene.*/}
 					<div className="test-current-youtube-video-tint">
 						<img className="test-current-youtube-video" src={placeholderimage}/>
 					</div>
@@ -84,7 +83,7 @@ function App() {
 					<div className="bottom-rectangle"/>
 					<div className="bottom-triangle"/>
 				</div>
-				</div>
+			</div>
 	);
 }
 
