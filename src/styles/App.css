@@ -59,7 +59,9 @@
 }
 
 .test-current-youtube-video{
-  width: 260px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .test-current-youtube-video-tint{
@@ -69,26 +71,26 @@
 }
 
 .scenes-grid{
-  margin-top: 25px;
-  height: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
   background-color: pink;
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+}
+
+.bottom-content{
   position: relative;
 }
 
 .bottom-text{
   position: absolute;
-  right: 63px;
-  bottom: 9.5px;
+  top: 4px;
+  right: 62px;
 }
 
 .bottom-rectangle{
   position: absolute;
   right: 20.7px;
-  bottom: 30px;
+  top: 10.5px;
   width: 40px;
   height: 16px;
   border-radius: 2px;
@@ -97,8 +99,8 @@
 
 .bottom-triangle{
   position: absolute;
-  right: -25px;
-  bottom: -2px;
+  right: -25.5px;
+  top: -21.6px;
   width: 0; 
   height: 0; 
   border-left: 5px solid transparent;

@@ -1,6 +1,7 @@
 import "./styles/App.css";
 import "./styles/General.css";
 import placeholderimage from "./media/placeholder-picture.png";
+import horizontalTimer from "./media/IMG_0826.PNG";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
 					<p className="timer-text">00:01:20 <span className="seconds-text">00</span></p>
 					<div className="white-line"/>
 					<div className="white-line"/>
+					<img className="bottom-horizontal-timer" src={horizontalTimer}/>
 					{/* add details for timer here */}
 				</div>
 				<div className="scenes-grid">
