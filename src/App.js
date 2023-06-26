@@ -1,6 +1,4 @@
-import React, {useState, useEffect} from "react";
-import YT from 'react-youtube'
-import YouTube, { YouTubePlayer }  from 'react-youtube'
+import YouTube from 'react-youtube'
 import "./styles/App.css";
 import "./styles/General.css";
 import placeholderimage from "./media/placeholder-picture.png";
@@ -16,7 +14,6 @@ function App() {
 	  height: "650px",
 	  width: "100%",
 	  playerVars: {
-		autoplay: 1
 	  }
 	};
   
@@ -40,7 +37,11 @@ function App() {
 	return (
 			<div className="video-player-background" onKeyDown={handleInput} tabIndex={0}>
 				<div className="current-video">
-					<YouTube videoId={"aGWQYgZZEEQ"} opts={opts} onReady={_onReady} />
+					<YouTube className="current-youtube-video" videoId={"aGWQYgZZEEQ"} opts={opts} onReady={_onReady} />
+					{/* <iframe className="current-youtube-video"
+						src="https://www.youtube.com/embed/videoseries?list=PLUt2ZbkV3lGG_ys0_GxDOQmgLHi6-VZyY"
+						title="YouTube video player"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"/> */}
 					<div className="current-video-tint"/>
 					<p className="upper-left-text">100.00 100.00 42.15</p>
 					<p className="upper-left-text-2">47.00 100.00 74.00</p>
