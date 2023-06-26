@@ -5,7 +5,7 @@ import placeholderimage from "./media/placeholder-picture.png";
 import horizontalTimer from "./media/IMG_0827.PNG";
 import horizontalTimerTop from "./media/IMG_0829.PNG";
 import horizontalTimerTopSeconds from "./media/IMG_0830.PNG";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 let videoElement = null;
 function App() {
@@ -52,29 +52,29 @@ function App() {
 					{/* This will need to change to be dyanmic and do a countdown of how much time left in video*/}
 					<p className="timer-text">00:01:20 <span className="seconds-text">00</span></p>
 					<div className="white-line">
-						<img className="top-seconds-timer" src={horizontalTimerTopSeconds}/>
-						<img className="top-horizontal-timer" src={horizontalTimerTop}/>
+						<img className="top-seconds-timer" src={horizontalTimerTopSeconds} alt=" "/>
+						<img className="top-horizontal-timer" src={horizontalTimerTop} alt=" "/>
 					</div>
 					<div className="white-line">
-					<img className="bottom-horizontal-timer" src={horizontalTimer}/>
+					<img className="bottom-horizontal-timer" src={horizontalTimer} alt=" "/>
 					</div>
 				</div>
 				<div className="scenes-grid">
 					{/* change these areas to be stills from the scene.*/}
 					<div className="test-current-youtube-video-tint">
-						<img className="test-current-youtube-video" src={placeholderimage}/>
+						<img className="test-current-youtube-video" src={placeholderimage} alt=" "/>
 					</div>
 					<div className="test-current-youtube-video-tint">
-						<img className="test-current-youtube-video" src={placeholderimage}/>
+						<img className="test-current-youtube-video" src={placeholderimage} alt=" "/>
 					</div>
 					<div className="test-current-youtube-video-tint">
-						<img className="test-current-youtube-video" src={placeholderimage}/>
+						<img className="test-current-youtube-video" src={placeholderimage} alt=" "/>
 					</div>
 					<div className="test-current-youtube-video-tint">
-						<img className="test-current-youtube-video" src={placeholderimage}/>
+						<img className="test-current-youtube-video" src={placeholderimage} alt=" "/>
 					</div>
 					<div className="test-current-youtube-video-tint">
-						<img className="test-current-youtube-video" src={placeholderimage}/>
+						<img className="test-current-youtube-video" src={placeholderimage} alt=" "/>
 					</div>
 				</div>
 				<div className="bottom-content">
