@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
 
+.video-player-background{
+  background-color: blue;
+  height: 900px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 p{
   color: #D5FBFE;
   margin: 0px;
@@ -12,4 +21,5 @@ p{
   height: 2px;
   width: 100%;
   background-color: #D5FBFE;
+  position: relative;
 }
