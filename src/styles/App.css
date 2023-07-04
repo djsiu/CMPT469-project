@@ -1,0 +1,123 @@
+
+.current-video{
+  position: relative;
+}
+
+.upper-middle-text,
+.upper-left-text-2,
+.upper-left-text{
+  position: absolute;
+  font-size: 14px;
+  top: 50px;
+  left: 25px;
+}
+
+.upper-left-text-2{
+  top: 70px;
+  left: 33px;
+}
+
+.upper-middle-text{
+  left: 45%;
+}
+
+.custom-middle-text{
+  font-size: 18px;
+}
+
+.timer-text{
+  position: absolute;
+  font-size: 14px;
+  top: 50px;
+  right: 33px;
+}
+
+.seconds-text{
+  font-size: 10px;
+}
+
+.current-youtube-video{
+  margin-top: 30px;
+  width: 100%;
+	height: 650px;
+}
+
+.current-video-tint{
+  background-color: #125862;
+  width: 100%;
+	height: 650px;
+  pointer-events: none;
+  top: 30px;
+  position: absolute;
+  opacity: 40%;
+}
+
+.test-current-youtube-video{
+  width: 100%;
+}
+
+.test-current-youtube-video-tint{
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #125862;
+  opacity: 60%;
+  pointer-events: none;
+}
+
+.scenes-grid{
+  background-color: #27393A;
+  position: relative;
+  margin-top: 35px;
+  display: flex;
+}
+
+.bottom-content{
+  position: relative;
+}
+
+.bottom-text{
+  position: absolute;
+  top: 4px;
+  right: 62px;
+}
+
+.bottom-rectangle{
+  position: absolute;
+  right: 20.7px;
+  top: 10.5px;
+  width: 40px;
+  height: 16px;
+  border-radius: 2px;
+  background-color: #D5FBFE;
+}
+
+.bottom-triangle{
+  position: absolute;
+  right: -25.5px;
+  top: -21.6px;
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 16px solid #D5FBFE;
+  border-radius: 2px;
+  margin: 2rem;
+}
+
+.top-seconds-timer,
+.top-horizontal-timer,
+.bottom-horizontal-timer{
+  width: 100%;
+  position: absolute;
+  top: 2px;
+}
+
+.top-horizontal-timer{
+  top: -3px;
+  pointer-events: none;
+}
+
+.top-seconds-timer{
+  top: -30px;
+  pointer-events: none;
+}
