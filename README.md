@@ -13,4 +13,8 @@ Make sure you have npx and Node.js installed.
 Be in the correct directory and run:
 `npm start`
 
+note
+
+- npm install react-player
+
 Access published page: https://djsiu.github.io/cmpt469-project
