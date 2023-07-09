@@ -67,16 +67,15 @@ function App() {
 		>
 			<div className="current-video">
 				<ReactPlayer
-					url="https://youtu.be/sROowJL1reo"
+					url="https://vimeo.com/40451890"
 					ref={playerRef}
 					loop={true}
 					height="650px"
 					width="100%"
 					progressInterval={100} // adjust this to change how often the timestamp updates
 					onProgress={handleProgress}
-					controls={false}
-					modestbranding={true}
 				/>
+
 				<div className="current-video-tint" />
 				<p className="upper-left-text">100.00 100.00 42.15</p>
 				<p className="upper-left-text-2">47.00 100.00 74.00</p>
