@@ -67,7 +67,7 @@ function App() {
 		>
 			<div className="current-video">
 				<ReactPlayer
-					url="https://vimeo.com/40451890"
+					url="https://vimeo.com/843612061?share=copy"
 					ref={playerRef}
 					loop={true}
 					height="650px"
