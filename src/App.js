@@ -72,6 +72,7 @@ function App() {
 					loop={true}
 					height="650px"
 					width="100%"
+					controls={false}
 					progressInterval={100} // adjust this to change how often the timestamp updates
 					onProgress={handleProgress}
 				/>
