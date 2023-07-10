@@ -7,13 +7,13 @@ import horizontalTimerTop from "./media/IMG_0829.PNG";
 import horizontalTimerTopSeconds from "./media/IMG_0830.PNG";
 import ReactPlayer from "react-player";
 import { React, useState, useRef } from "react";
-//import "bootstrap/dist/css/bootstrap.min.css";
 
 let videoElement = null;
 function App() {
 	const [state, setState] = useState({
 		duration: 0,
 	});
+	const [play, setplay] = useState(false)
 	const playerRef = useRef(0);
 
 	const currentTime =
@@ -41,12 +41,15 @@ function App() {
 	};
 
 	function handleInput(event) {
+		console.log(event.key);
 		if (event.key === "z") {
 			console.log("Play");
-			videoElement.target.playVideo();
+			setplay(true)
+			//videoElement?.target?.playVideo();
 		} else if (event.key === "x") {
-			videoElement.target.pauseVideo();
+			//videoElement?.target?.pauseVideo();
 			console.log("Pause");
+			setplay(false)
 		}
 	}
 
@@ -67,14 +70,17 @@ function App() {
 		>
 			<div className="current-video">
 				<ReactPlayer
+					className="current-youtube-video"
 					url="https://vimeo.com/843612061?share=copy"
 					ref={playerRef}
+					playing={play}
 					loop={true}
-					height="650px"
-					width="100%"
+					height='650px'
+					width='100%'
 					controls={false}
 					progressInterval={100} // adjust this to change how often the timestamp updates
 					onProgress={handleProgress}
+					onReady={_onReady}
 				/>
 
 				<div className="current-video-tint" />
