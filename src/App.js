@@ -26,9 +26,13 @@ function App() {
 	const duration =
 		playerRef && playerRef.current ? playerRef.current.getDuration() : "00:00";
 
-	const timeRemaining = (
-		Math.round((duration - currentTime) * 100) / 100
-	).toFixed(2);
+	const timeRemainingSeconds = (
+		(Math.trunc(duration - currentTime)) //(Math.round(duration - currentTime)*100)/100 //* 100) /// 100
+	).toString().padStart(2, '0');
+
+	const timeRemainingDecimal = (
+		Math.trunc(((duration - currentTime) * 100)%100) 
+	).toString().padStart(2, '0');
 
 	const opts = {
 		height: "650px",
@@ -93,8 +97,10 @@ function App() {
 				</p>
 				{/* This will need to change to be dyanmic and do a countdown of how much time left in video*/}
 				<p className="timer-text">
-					{timeRemaining}
-					<span className="seconds-text">.00</span>
+					00:00:
+					{timeRemainingSeconds}
+					.
+					<span className="seconds-text">{timeRemainingDecimal}</span>
 				</p>
 				<div className="white-line">
 					<img
