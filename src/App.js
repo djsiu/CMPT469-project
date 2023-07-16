@@ -3,9 +3,7 @@ import "./styles/App.css";
 import "./styles/General.css";
 import placeholderimage from "./media/placeholder-picture.png";
 import horizontalTimer from "./media/IMG_0827.PNG";
-import horizontalTimerTop from "./media/IMG_0829.PNG";
-import horizontalTimerTopSeconds from "./media/IMG_0830.PNG";
-import horizontalTimerTopSeconds2 from "./media/image_test.PNG";
+import horizontalTimerTop from "./media/timer-image.PNG";
 import ReactPlayer from "react-player";
 import { React, useState, useRef, useEffect} from "react";
 import captureVideoFrame from 'capture-video-frame';
@@ -122,7 +120,7 @@ function App() {
 				<div className="white-line">
 					<img
 						className="top-seconds-timer"
-						src={horizontalTimerTopSeconds2}
+						src={horizontalTimerTop}
 						alt=" "
 					/>
 				</div>
