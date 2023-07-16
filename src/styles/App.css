@@ -119,6 +119,38 @@
   animation-direction: normal;
 }
 
+.popup{
+  position: absolute;
+  z-index: 1;
+  top: 15%;
+  left: 22%;
+}
+
+.contentBox{
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background-color: red;
+  border-radius: 2px;
+  display: flex;
+}
+
+.video-player-background{
+  position: relative;
+}
+
+.pause-gesture-instruction{
+  display: none;
+}
+
+.popup-background{
+  background-color: rgba(18, 88, 98, 0.6);
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
 @keyframes top-seconds-timer-move {
   from {right: 0px;}
   to {right: -2100px;}

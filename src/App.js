@@ -78,6 +78,17 @@ function App() {
 		}
 	});
 
+	function testingFunc(event) {
+		console.log(event.key);
+		console.log('got here');
+		if (event.key === "m") {
+			console.log('here');
+			//popup needs to be clicked on 
+			document.getElementById('block1').style.display = 'block';
+			console.log('here2');
+		}
+	}
+
 	console.log(document.getElementById("my-video"));
 	return (
 		<div
@@ -85,6 +96,18 @@ function App() {
 			onKeyDown={handleInput}
 			tabIndex={0}
 		>
+			<div className="popup-background">
+			<div className="popup" id="popup-box" onKeyDown={testingFunc} tabIndex={0}>
+				<div className="contentBox">
+					<div className="play-gesture-instruction">
+						HELLO
+					</div>
+					<div className="pause-gesture-instruction" id='block1'>
+						HOW ARE YOU!
+					</div>
+				</div>
+			</div>
+			</div>
 			<div className="current-video">
 				<ReactPlayer
 					className="current-youtube-video"
@@ -156,6 +179,10 @@ function App() {
 				const img = document.getElementById('my-screenshot')
 				img.setAttribute('src', frame.dataUri)
 			}}>Click</button>
+			<button onClick={() => {
+				//This seems to work, might have to do function instead of onClick that times out? might be hard
+				document.getElementById('popup-box').style.display = "none";
+			}}>Click ME!!!</button>
 
 				<div className="test-current-youtube-video-tint">
 					<img
