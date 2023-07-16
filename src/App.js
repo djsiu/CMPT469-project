@@ -41,6 +41,7 @@ function App() {
 
 	function handleInput(event) {
 		console.log(event.key);
+		if(document.getElementById('popup-background').style.display === 'none'){
 		if (event.key === "z") {
 			console.log("Play");
 			setplay(true)
@@ -56,6 +57,7 @@ function App() {
 				animation.pause();
 			})
 		}
+	}
 	}
 
 	const handleDuration = (duration) => {
@@ -81,11 +83,14 @@ function App() {
 	function testingFunc(event) {
 		console.log(event.key);
 		console.log('got here');
-		if (event.key === "m") {
+		if (event.key === "z") {
 			console.log('here');
 			//popup needs to be clicked on 
 			document.getElementById('block1').style.display = 'block';
 			console.log('here2');
+		} else if(event.key === 'x') {
+			console.log('almost done');
+			document.getElementById('popup-background').style.display = 'none';
 		}
 	}
 
@@ -96,13 +101,13 @@ function App() {
 			onKeyDown={handleInput}
 			tabIndex={0}
 		>
-			<div className="popup-background">
+			<div className="popup-background" id="popup-background">
 			<div className="popup" id="popup-box" onKeyDown={testingFunc} tabIndex={0}>
 				<div className="contentBox">
 					<div className="play-gesture-instruction">
 						HELLO
 					</div>
-					<div className="pause-gesture-instruction" id='block1'>
+					<div className="pause-gesture-instruction" id='block1' onKeyDown={testingFunc} tabIndex={0}>
 						HOW ARE YOU!
 					</div>
 				</div>
