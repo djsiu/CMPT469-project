@@ -104,8 +104,16 @@ function App() {
 			<div className="popup-background" id="popup-background">
 			<div className="popup" id="popup-box" onKeyDown={testingFunc} tabIndex={0}>
 				<div className="contentBox">
-					<div className="play-gesture-instruction">
-						HELLO
+						<p>
+							<span className="instruction-title">THE FOLLOWING GESTURES CAN BE USED TO CONTROL VISIONS AND FIND CLUES</span>
+						</p>
+						<div className="play-gesture-instruction">
+							<p>
+								<span className="gesture-title">3-FINGER-POINT TO PAUSE</span>
+							</p>
+						<img className="instruction-gif" src={placeholderimage} alt=" "
+						//add import playgif from ./media/playgif.webp and change {placeholderimag} with playgif
+						/>
 					</div>
 					<div className="pause-gesture-instruction" id='block1' onKeyDown={testingFunc} tabIndex={0}>
 						HOW ARE YOU!
