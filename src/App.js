@@ -86,7 +86,8 @@ function App() {
 		if (event.key === "z") {
 			console.log('here');
 			//popup needs to be clicked on 
-			document.getElementById('block1').style.display = 'block';
+			document.getElementById('block1').style.display = 'none';
+			document.getElementById('block2').style.display = 'block';
 			console.log('here2');
 		} else if(event.key === 'x') {
 			console.log('almost done');
@@ -107,16 +108,31 @@ function App() {
 						<p>
 							<span className="instruction-title">THE FOLLOWING GESTURES CAN BE USED TO CONTROL VISIONS AND FIND CLUES</span>
 						</p>
-						<div className="play-gesture-instruction">
+						<div className="top-corner-horizontal"/>
+						<div className="top-corner-vertical"/>
+						<div className="bottom-corner-vertical"/>
+						<div className="bottom-corner-horizontal"/>
+						<div className="gesture-instruction-box">
+							<div className="top-corner-horizontal"/>
+							<div className="top-corner-vertical"/>
+							<div className="bottom-corner-vertical-inside"/>
+							<div className="bottom-corner-horizontal-inside"/>
+							<div className="play-gesture-instruction" id='block1' onKeyDown={testingFunc} tabIndex={0}>
 							<p>
 								<span className="gesture-title">3-FINGER-POINT TO PAUSE</span>
 							</p>
-						<img className="instruction-gif" src={placeholderimage} alt=" "
+							<img className="instruction-gif" src={placeholderimage} alt=" "
 						//add import playgif from ./media/playgif.webp and change {placeholderimag} with playgif
 						/>
+						</div>
+						<div className="pause-gesture-instruction" id='block2' onKeyDown={testingFunc} tabIndex={0}>
+							<p>
+								<span className="gesture-title">DOWNWARDS DIVE TO PAUSE</span>
+							</p>
+							<img className="instruction-gif" src={placeholderimage} alt=" "
+							//add import playgif from ./media/playgif.webp and change {placeholderimag} with playgif
+							/>
 					</div>
-					<div className="pause-gesture-instruction" id='block1' onKeyDown={testingFunc} tabIndex={0}>
-						HOW ARE YOU!
 					</div>
 				</div>
 			</div>

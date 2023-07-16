@@ -129,7 +129,7 @@
   position: relative;
   width: 850px;
   height: 600px;
-  background-color: red;
+  background-color: #27393A;
   border-radius: 2px;
   display: flex;
   margin-top: 150px;
@@ -143,11 +143,11 @@
   display: none;
 }
 
-.play-gesture-instruction{
+.gesture-instruction-box{
   display: block;
   height: 400px;
   width: 600px;
-  background-color: aqua;
+  background-color: #27393A;
   position: absolute;
   top: 55%;
   left: 50%;

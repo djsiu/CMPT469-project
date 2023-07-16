@@ -52,3 +52,45 @@ p{
   display: block;
   margin-top: 20px;
 }
+
+.bottom-corner-horizontal-inside,
+.bottom-corner-horizontal,
+.top-corner-horizontal{
+  width: 150px;
+  height: 5px;;
+  background-color: #D5FBFE;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bottom-corner-vertical-inside,
+.bottom-corner-vertical,
+.top-corner-vertical{
+  width: 5px;
+  height: 100px;;
+  background-color: #D5FBFE;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bottom-corner-vertical{
+  top: 83%;
+  right: 99.4%;
+}
+
+.bottom-corner-horizontal{
+  top: 99.2%;
+  right: 82.35%;
+}
+
+.bottom-corner-vertical-inside{
+  top: 75%;
+  right: 99.2%
+}
+
+.bottom-corner-horizontal-inside{
+  top: 98.7%;
+  right: 75%;
+}
