@@ -102,20 +102,24 @@
   margin: 2rem;
 }
 
-.top-seconds-timer,
-.top-horizontal-timer,
 .bottom-horizontal-timer{
   width: 100%;
   position: absolute;
   top: 2px;
-}
-
-.top-horizontal-timer{
-  top: -3px;
   pointer-events: none;
 }
 
 .top-seconds-timer{
   top: -30px;
+  right: 0px;
+  position: absolute;
   pointer-events: none;
+  animation: top-seconds-timer-move 11s infinite linear;
+  animation-play-state: paused;
+  animation-direction: normal;
+}
+
+@keyframes top-seconds-timer-move {
+  from {right: 0px;}
+  to {right: -1440px;}
 }
