@@ -13,8 +13,18 @@ function App() {
 	const [state, setState] = useState({
 		duration: 0,
 	});
-	const [play, setplay] = useState(false)
+	const [play, setplay] = useState(false);
 	const playerRef = useRef(0);
+
+	//used for playlist functionality
+	const [playlistCount, setPlaylistCount] = useState(0);
+
+	const videoList = [
+		"https://vimeo.com/843612061?share=copy",
+		"https://vimeo.com/845778300?share=copy",
+		"https://vimeo.com/836902788",
+		"https://vimeo.com/835443914",
+	];
 
 	const currentTime =
 		Math.round(
@@ -44,12 +54,41 @@ function App() {
 		console.log(event.key);
 		if (event.key === "z") {
 			console.log("Play");
-			setplay(true)
+			setplay(true);
 			//videoElement?.target?.playVideo();
 		} else if (event.key === "x") {
 			//videoElement?.target?.pauseVideo();
 			console.log("Pause");
-			setplay(false)
+			setplay(false);
+		} else if (event.key === "n") {
+			handlePlaylist(0);
+		} else if (event.key === "m") {
+			handlePlaylist(1);
+		}
+	}
+
+	// handle incrementing playlist
+	function handlePlaylist(x) {
+		console.log("count before switch: ", playlistCount);
+		switch (x) {
+			case 0: // backwards
+				if (playlistCount <= 0) {
+					setPlaylistCount(videoList.length - 1);
+					console.log("Current count: ", playlistCount);
+				} else {
+					setPlaylistCount(playlistCount - 1);
+				}
+				break;
+			case 1: // forwards
+				if (playlistCount >= videoList.length - 1) {
+					setPlaylistCount(0);
+					console.log("Current count: ", playlistCount);
+				} else {
+					setPlaylistCount(playlistCount + 1);
+				}
+				break;
+			default:
+			// do nothing
 		}
 	}
 
@@ -71,12 +110,12 @@ function App() {
 			<div className="current-video">
 				<ReactPlayer
 					className="current-youtube-video"
-					url="https://vimeo.com/843612061?share=copy"
+					url={videoList[playlistCount]}
 					ref={playerRef}
 					playing={play}
 					loop={true}
-					height='650px'
-					width='100%'
+					height="650px"
+					width="100%"
 					controls={false}
 					progressInterval={100} // adjust this to change how often the timestamp updates
 					onProgress={handleProgress}
