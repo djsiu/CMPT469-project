@@ -72,8 +72,10 @@ function App() {
 			})
 		} else if (event.key === "n") {
 			handlePlaylist(0);
+			restartAnimation();
 		} else if (event.key === "m") {
 			handlePlaylist(1);
+			restartAnimation();
 		}
 	}
 
@@ -112,13 +114,25 @@ function App() {
 	useEffect(() => {
 		if(playerRef.current.getCurrentTime() === 0)
 		{
-			console.log('Restart Animation');
-			document.getAnimations().forEach((animation) => {
-				animation.cancel();
-				animation.play();
-			})
+			restartAnimation();
 		}
 	});
+
+	function restartAnimation() {
+		console.log('Restart Animation');
+			document.getAnimations().forEach((animation) => {
+				if(play === true){
+					console.log('true');
+					animation.cancel();
+					animation.play();
+				} else {
+					console.log('false');
+					animation.cancel();
+					animation.play();
+					animation.pause();
+				}
+			})
+	}
 
 	function testingFunc(event) {
 		console.log(event.key);
