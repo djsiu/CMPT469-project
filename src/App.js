@@ -16,8 +16,20 @@ function App() {
 	const [state, setState] = useState({
 		duration: 0,
 	});
-	const [play, setplay] = useState(false)
+	const [play, setplay] = useState(false);
 	const playerRef = useRef(0);
+
+	//used for playlist functionality
+	const [playlistCount, setPlaylistCount] = useState(0);
+
+	const videoList = [
+		"https://vimeo.com/843612061?share=copy",
+		"https://vimeo.com/845778300?share=copy",
+		"https://vimeo.com/845792470?share=copy",
+		"https://vimeo.com/845792489?share=copy",
+		"https://vimeo.com/845792480?share=copy",
+		"https://vimeo.com/845792455?share=copy",
+	];
 
 	const currentTime =
 		Math.round(
@@ -46,7 +58,7 @@ function App() {
 		if(document.getElementById('popup-background').style.display === 'none'){
 		if (event.key === "z") {
 			console.log("Play");
-			setplay(true)
+			setplay(true);
 			document.getAnimations().forEach((animation) =>{
 				animation.play();
 			})
@@ -54,10 +66,36 @@ function App() {
 		} else if (event.key === "x") {
 			//videoElement?.target?.pauseVideo();
 			console.log("Pause");
-			setplay(false)
+			setplay(false);
 			document.getAnimations().forEach((animation) =>{
 				animation.pause();
 			})
+		} else if (event.key === "n") {
+			handlePlaylist(0);
+		} else if (event.key === "m") {
+			handlePlaylist(1);
+		}
+	}
+
+	// handle incrementing playlist
+	function handlePlaylist(x) {
+		switch (x) {
+			case 0: // backwards
+				if (playlistCount <= 0) {
+					setPlaylistCount(videoList.length - 1);
+				} else {
+					setPlaylistCount(playlistCount - 1);
+				}
+				break;
+			case 1: // forwards
+				if (playlistCount >= videoList.length - 1) {
+					setPlaylistCount(0);
+				} else {
+					setPlaylistCount(playlistCount + 1);
+				}
+				break;
+			default:
+			// do nothing
 		}
 	}
 	}
@@ -142,13 +180,13 @@ function App() {
 			<div className="current-video">
 				<ReactPlayer
 					className="current-youtube-video"
-					url="https://vimeo.com/843612061?share=copy"
+					url={videoList[playlistCount]}
 					id="testing-this"
 					ref={playerRef}
 					playing={play}
 					loop={true}
-					height='650px'
-					width='100%'
+					height="650px"
+					width="100%"
 					controls={false}
 					progressInterval={100} // adjust this to change how often the timestamp updates
 					onProgress={handleProgress}
@@ -162,7 +200,7 @@ function App() {
 				<p className="upper-middle-text">
 					1108
 					{/* This will need to change to change when a different video plays*/}
-					<span className="custom-middle-text"> 0673.19</span>
+					<span className="custom-middle-text"> {playlistCount + 1}000 </span>
 				</p>
 				{/* This will need to change to be dyanmic and do a countdown of how much time left in video*/}
 				<p className="timer-text">
