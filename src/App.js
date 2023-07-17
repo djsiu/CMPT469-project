@@ -8,6 +8,8 @@ import ReactPlayer from "react-player";
 import { React, useState, useRef, useEffect} from "react";
 import captureVideoFrame from 'capture-video-frame';
 import myVid from './movie.mp4';
+import playGif from './media/playGesture.webp';
+import pauseGif from './media/PauseGesture.png';
 
 let videoElement = null;
 function App() {
@@ -119,17 +121,17 @@ function App() {
 							<div className="bottom-corner-horizontal-inside"/>
 							<div className="play-gesture-instruction" id='block1' onKeyDown={testingFunc} tabIndex={0}>
 							<p>
-								<span className="gesture-title">3-FINGER-POINT TO PAUSE</span>
+								<span className="gesture-title">DOWNWARDS DIVE TO PLAY</span>
 							</p>
-							<img className="instruction-gif" src={placeholderimage} alt=" "
+							<img className="instruction-gif" src={playGif} alt=" "
 						//add import playgif from ./media/playgif.webp and change {placeholderimag} with playgif
 						/>
 						</div>
 						<div className="pause-gesture-instruction" id='block2' onKeyDown={testingFunc} tabIndex={0}>
 							<p>
-								<span className="gesture-title">DOWNWARDS DIVE TO PAUSE</span>
+								<span className="gesture-title">3-FINGER-POINT TO PAUSE</span>
 							</p>
-							<img className="instruction-gif" src={placeholderimage} alt=" "
+							<img className="instruction-gif" src={pauseGif} alt=" "
 							//add import playgif from ./media/playgif.webp and change {placeholderimag} with playgif
 							/>
 					</div>
@@ -186,6 +188,7 @@ function App() {
 			</div>
 			<div className="scenes-grid">
 				{/* change these areas to be stills from the scene.*/}
+				{/*}
 				<video id="my-video" width="320" height="200" controls>
   				<source src={myVid} type="video/mp4" />
 				</video>
@@ -200,7 +203,7 @@ function App() {
 				const img = document.getElementById('my-screenshot')
 				console.log('captured frame', frame)
 				//img.setAttribute('src', frame.dataUri)
-				*/
+				
 				console.log(document.getElementById("my-vid-2"))
 				console.log(playerRef.current.getInternalPlayer())
 				const frame = captureVideoFrame(("my-vid-2"),"png")
@@ -208,11 +211,7 @@ function App() {
 				const img = document.getElementById('my-screenshot')
 				img.setAttribute('src', frame.dataUri)
 			}}>Click</button>
-			<button onClick={() => {
-				//This seems to work, might have to do function instead of onClick that times out? might be hard
-				document.getElementById('popup-box').style.display = "none";
-			}}>Click ME!!!</button>
-
+				*/}
 				<div className="test-current-youtube-video-tint">
 					<img
 						className="test-current-youtube-video"
