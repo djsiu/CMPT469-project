@@ -22,8 +22,10 @@ function App() {
 	const videoList = [
 		"https://vimeo.com/843612061?share=copy",
 		"https://vimeo.com/845778300?share=copy",
-		"https://vimeo.com/836902788",
-		"https://vimeo.com/835443914",
+		"https://vimeo.com/845792470?share=copy",
+		"https://vimeo.com/845792489?share=copy",
+		"https://vimeo.com/845792470?share=copy",
+		"https://vimeo.com/845792455?share=copy",
 	];
 
 	const currentTime =
@@ -69,12 +71,10 @@ function App() {
 
 	// handle incrementing playlist
 	function handlePlaylist(x) {
-		console.log("count before switch: ", playlistCount);
 		switch (x) {
 			case 0: // backwards
 				if (playlistCount <= 0) {
 					setPlaylistCount(videoList.length - 1);
-					console.log("Current count: ", playlistCount);
 				} else {
 					setPlaylistCount(playlistCount - 1);
 				}
@@ -82,7 +82,6 @@ function App() {
 			case 1: // forwards
 				if (playlistCount >= videoList.length - 1) {
 					setPlaylistCount(0);
-					console.log("Current count: ", playlistCount);
 				} else {
 					setPlaylistCount(playlistCount + 1);
 				}
