@@ -127,7 +127,7 @@ function App() {
 				<p className="upper-middle-text">
 					1108
 					{/* This will need to change to change when a different video plays*/}
-					<span className="custom-middle-text"> 0673.19</span>
+					<span className="custom-middle-text"> {playlistCount + 1}000 </span>
 				</p>
 				{/* This will need to change to be dyanmic and do a countdown of how much time left in video*/}
 				<p className="timer-text">
