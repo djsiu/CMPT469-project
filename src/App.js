@@ -111,8 +111,6 @@ function App() {
 
   useEffect(() => {
     //Time Remaining refresh
-    //timer plays when video hsnt started (so instead of calling play when the video is 'play', just play when time remaining greater than 0?
-    //wont work because videos are not whole numebrs
     if (playerRef.current.getCurrentTime() === 0) {
       restartAnimation();
     }
@@ -174,6 +172,8 @@ function App() {
           tabIndex={0}
         >
           <div className="contentBox">
+						<div className="white-box-top"/>
+						<div className="white-box-bottom"/>
             <p>
               <span className="instruction-title">
                 THE FOLLOWING GESTURES CAN BE USED TO CONTROL VISIONS AND FIND
@@ -182,6 +182,8 @@ function App() {
             </p>
 
             <div className="gesture-instruction-box">
+							<div className="white-box-inner-top"/>
+							<div className="white-box-inner-bottom"/>
               <div
                 className="play-gesture-instruction"
                 id="block1"
