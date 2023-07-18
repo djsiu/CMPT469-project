@@ -31,13 +31,14 @@ function App() {
 		"https://vimeo.com/845792455?share=copy",
 	];
 
-	const currentTime =
+	const currentTime = 
 		Math.round(
 			(playerRef && playerRef.current
 				? playerRef.current.getCurrentTime()
 				: "00:00") * 100
 		) / 100; // rounding to 2 decimals
 
+		
 	const duration =
 		playerRef && playerRef.current ? playerRef.current.getDuration() : "00:00";
 
@@ -59,12 +60,7 @@ function App() {
 		if (event.key === "z") {
 			console.log("Play");
 			setplay(true);
-			document.getAnimations().forEach((animation) =>{
-				animation.play();
-			})
-			//videoElement?.target?.playVideo();
 		} else if (event.key === "x") {
-			//videoElement?.target?.pauseVideo();
 			console.log("Pause");
 			setplay(false);
 			document.getAnimations().forEach((animation) =>{
@@ -112,9 +108,22 @@ function App() {
 	};
 
 	useEffect(() => {
+		//Time Remaining refresh
+		//timer plays when video hsnt started (so instead of calling play when the video is 'play', just play when time remaining greater than 0?
+		//wont work because videos are not whole numebrs
 		if(playerRef.current.getCurrentTime() === 0)
 		{
 			restartAnimation();
+		}
+		if(playerRef.current.getCurrentTime() > 0)
+		{
+			document.getAnimations().forEach((animation) => {
+				if(play === true){
+					animation.play();
+				} else{
+					animation.pause();
+				}
+			})
 		}
 	});
 
@@ -145,7 +154,6 @@ function App() {
 		}
 	}
 
-	console.log(document.getElementById("my-video"));
 	return (
 		<div
 			className="video-player-background"
