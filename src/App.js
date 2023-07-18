@@ -65,9 +65,6 @@ function App() {
       } else if (event.key === "x") {
         console.log("Pause");
         setplay(false);
-        document.getAnimations().forEach((animation) => {
-          animation.pause();
-        });
       } else if (event.key === "n") {
         handlePlaylist(0);
         restartAnimation();
@@ -268,7 +265,7 @@ function App() {
           <span className="seconds-text">{timeRemainingDecimal}</span>
         </p>
         <div className="white-line">
-          <img className="top-seconds-timer" src={horizontalTimerTop} alt=" " />
+          <img className="top-seconds-timer" id="animated-timer" src={horizontalTimerTop} alt=" " />
         </div>
         <div className="white-line">
           <img
