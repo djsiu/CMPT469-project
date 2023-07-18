@@ -145,6 +145,14 @@
   display: none;
 }
 
+.swipe-gesture-instruction{
+  display: none;
+}
+
+.rotate-gesture-instruction{
+  display: none;
+}
+
 .gesture-instruction-box{
   display: block;
   height: 400px;
