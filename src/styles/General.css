@@ -43,6 +43,7 @@ p{
   text-align: center;
   display: block;
   margin-top: 20px;
+  z-index: 2;
 }
 
 .popup{
@@ -87,6 +88,18 @@ p{
   justify-content: center;
 }
 
+.instruction-gif-tint{
+  background-color: #125862;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  opacity: 40%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
 .instruction-gif{
   width: 270px;
   height: 300px;
@@ -94,7 +107,7 @@ p{
   display: block;
   margin-top: 20px;
   margin-left: 25%;
-  filter: sepia(90%) hue-rotate(170deg) saturate(80%);
+  /*filter: sepia(90%) hue-rotate(170deg) saturate(80%);*/
 }
 
 .white-box-inner-bottom,

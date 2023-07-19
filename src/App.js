@@ -1,12 +1,9 @@
 import "./styles/App.css";
 import "./styles/General.css";
-import placeholderimage from "./media/placeholder-picture.png";
 import horizontalTimer from "./media/IMG_0827.PNG";
 import horizontalTimerTop from "./media/timer-image.PNG";
 import ReactPlayer from "react-player";
 import { React, useState, useRef, useEffect } from "react";
-import captureVideoFrame from "capture-video-frame";
-import myVid from "./movie.mp4";
 import playGif from "./media/playGesture.webp";
 import pauseGif from "./media/PauseGesture.png";
 import swipeGif from "./media/SwipeGesture.webp";
@@ -108,6 +105,7 @@ function App() {
 
   useEffect(() => {
     //Time Remaining refresh
+		updateScenePhotos();
     if (playerRef.current.getCurrentTime() === 0) {
       restartAnimation();
     }
@@ -155,6 +153,14 @@ function App() {
     }
   }
 
+	function updateScenePhotos(){
+		let elements = document.getElementsByClassName("test-current-youtube-video");
+			Array.from(elements).forEach((element) => {
+				console.log("/video" + ((playlistCount + 1).toString()) + "/" + ((playlistCount + 1).toString()) + "vid"  + Math.trunc(currentTime) + ".png");
+				element.src= ("/video" + ((playlistCount + 1).toString()) + "/" + ((playlistCount + 1).toString()) + "vid"  + Math.trunc(currentTime) + ".png").toString();
+			})
+	}
+
   return (
     <div
       className="video-player-background"
@@ -190,6 +196,7 @@ function App() {
                 <p>
                   <span className="gesture-title">DOWNWARDS DIVE TO PLAY</span>
                 </p>
+								<div className="instruction-gif-tint"/>
                 <img className="instruction-gif" src={playGif} alt=" " />
               </div>
               <div
@@ -201,6 +208,7 @@ function App() {
                 <p>
                   <span className="gesture-title">3-FINGER-POINT TO PAUSE</span>
                 </p>
+								<div className="instruction-gif-tint"/>
                 <img className="instruction-gif" src={pauseGif} alt=" " />
               </div>
               <div
@@ -214,6 +222,7 @@ function App() {
                     SWIPE TO GO TO NEXT/PREVIOUS VISION
                   </span>
                 </p>
+								<div className="instruction-gif-tint"/>
                 <img className="instruction-gif" src={swipeGif} alt=" " />
               </div>
               <div
@@ -227,6 +236,7 @@ function App() {
                     ROTATE TO SKIP FORWARD/BACKWARD
                   </span>
                 </p>
+								<div className="instruction-gif-tint"/>
                 <img className="instruction-gif" src={rotateGif} alt=" " />
               </div>
             </div>
@@ -236,7 +246,7 @@ function App() {
       <div className="current-video">
         <ReactPlayer
           className="current-youtube-video"
-          url={videoList[playlistCount]}
+          url= {videoList[playlistCount]}
           id="testing-this"
           ref={playerRef}
           playing={play}
@@ -276,63 +286,38 @@ function App() {
         </div>
       </div>
       <div className="scenes-grid">
-        {/* change these areas to be stills from the scene.*/}
-        {/*}
-				<video id="my-video" width="320" height="200" controls>
-  				<source src={myVid} type="video/mp4" />
-				</video>
-				<iframe className='video'
-				id="my-vid-2"
-        sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
-        src={`https://www.youtube.com/embed/gL6iSCSHjco?controls=0`}>
-			</iframe>
-				<img width="320px" height="200px" id='my-screenshot'></img>
-				<button onClick={() => {
-					/*const frame = captureVideoFrame("testing-this", "png")
-				const img = document.getElementById('my-screenshot')
-				console.log('captured frame', frame)
-				//img.setAttribute('src', frame.dataUri)
-				
-				console.log(document.getElementById("my-vid-2"))
-				console.log(playerRef.current.getInternalPlayer())
-				const frame = captureVideoFrame(("my-vid-2"),"png")
-				console.log('captured frame', frame)
-				const img = document.getElementById('my-screenshot')
-				img.setAttribute('src', frame.dataUri)
-			}}>Click</button>
-				*/}
-        <div className="test-current-youtube-video-tint">
+        <div className="current-small-video-tint">
           <img
             className="test-current-youtube-video"
-            src={placeholderimage}
+						src={'/video1/1vid0.png'}
             alt=" "
           />
         </div>
-        <div className="test-current-youtube-video-tint">
+        <div className="current-small-video-tint">
           <img
             className="test-current-youtube-video"
-            src={placeholderimage}
+            src={'/video1/1vid0.png'}
             alt=" "
           />
         </div>
-        <div className="test-current-youtube-video-tint">
+        <div className="current-small-video-tint">
           <img
             className="test-current-youtube-video"
-            src={placeholderimage}
+            src={'/video1/1vid0.png'}
             alt=" "
           />
         </div>
-        <div className="test-current-youtube-video-tint">
+        <div className="current-small-video-tint">
           <img
             className="test-current-youtube-video"
-            src={placeholderimage}
+            src={'/video1/1vid0.png'}
             alt=" "
           />
         </div>
-        <div className="test-current-youtube-video-tint">
+        <div className="current-small-video-tint">
           <img
             className="test-current-youtube-video"
-            src={placeholderimage}
+            src={'/video1/1vid0.png'}
             alt=" "
           />
         </div>

@@ -52,13 +52,16 @@
 
 .test-current-youtube-video{
   width: 100%;
+  opacity: 40%;
+  height: 140px;
+  object-fit: contain;
 }
 
-.test-current-youtube-video-tint{
-  margin-left: 5px;
-  margin-right: 5px;
+.current-small-video-tint{
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
   background-color: #125862;
-  opacity: 60%;
   pointer-events: none;
 }
 
