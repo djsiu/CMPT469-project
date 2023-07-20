@@ -225,7 +225,12 @@ function App() {
 		let elements = document.getElementsByClassName("test-current-youtube-video");
 			Array.from(elements).forEach((element) => {
 				console.log("/video" + ((playlistCount + 1).toString()) + "/" + ((playlistCount + 1).toString()) + "vid"  + Math.trunc(currentTime) + ".png");
-				element.src= ("/video" + ((playlistCount + 1).toString()) + "/" + ((playlistCount + 1).toString()) + "vid"  + Math.trunc(currentTime) + ".png").toString();
+        console.log('this is the current time' + Math.trunc(currentTime));
+        if (isNaN(Math.trunc(currentTime))) {
+				  element.src= ("/video" + ((playlistCount + 1).toString()) + "/" + ((playlistCount + 1).toString()) + "vid0.png").toString();
+        } else {
+          element.src= ("/video" + ((playlistCount + 1).toString()) + "/" + ((playlistCount + 1).toString()) + "vid"  + Math.trunc(currentTime) + ".png").toString();
+        }
 			})
 	}
 
