@@ -142,10 +142,16 @@ function App() {
       // outter box of popup needs to be clicked on
       document.getElementById("block1").style.display = "none";
       document.getElementById("block2").style.display = "block";
+      document.getElementById("block3").style.display = "none";
+      document.getElementById("block4").style.display = "none";
     } else if (event.key === "x") {
+      document.getElementById("block1").style.display = "none";
       document.getElementById("block2").style.display = "none";
       document.getElementById("block3").style.display = "block";
+      document.getElementById("block4").style.display = "none";
     } else if ((event.key === "m") | (event.key === "n")) {
+      document.getElementById("block1").style.display = "none";
+      document.getElementById("block2").style.display = "none";
       document.getElementById("block3").style.display = "none";
       document.getElementById("block4").style.display = "block";
     } else if ((event.key === "-") | (event.key === "+")) {
