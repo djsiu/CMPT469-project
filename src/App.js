@@ -58,25 +58,23 @@ function App() {
   var timeToStart
   function handleInput(event) {
     console.log(event.key);
-    if (document.getElementById("popup-background").style.display === "none") {
-      setSkippingBackward(false);
-      setSkippingForward(false);
+    console.log('the value is outside' + document.getElementById("popup-background").style.display);
+     if (document.getElementById("popup-background").style.display === "none") {
+      console.log('the value is inside' + document.getElementById("popup-background").style.display);
+    //   setSkippingBackward(false);
+    //   setSkippingForward(false);
       if (event.key === "z") {
         console.log("Play");
         setplay(true);
-        setTimeSkipForward(0);
       } else if (event.key === "x") {
         console.log("Pause");
         setplay(false);
-        setTimeSkipForward(0);
       } else if (event.key === "n") {
         handlePlaylist(0);
         restartAnimation();
-        setTimeSkipForward(0);
       } else if (event.key === "m") {
         handlePlaylist(1);
         restartAnimation();
-        setTimeSkipForward(0);
       }
       else if (event.key === "-"){
         console.log('backward');
@@ -109,12 +107,12 @@ function App() {
 	// 	setVideoLink(videoLinks[i]);
 	// } 
 	else if ( Number(event.key) < 10 ) {
-    if(document.getElementById("popup-background").style.display = "none"){
-      setTimeSkipForward(Number(event.key));
-      console.log('the time is');
-      console.log(timeSkipForward);
-      console.log('so....');
-    }
+    // if(document.getElementById("popup-background").style.display = "none"){
+    //   setTimeSkipForward(Number(event.key));
+    //   console.log('the time is');
+    //   console.log(timeSkipForward);
+    //   console.log('so....');
+    // }
     var skipToTime = Number(event.key) != 0 ? (duration * Number(event.key))/9 : 0
         playerRef.current.seekTo(skipToTime, 'seconds');
      }
@@ -216,6 +214,9 @@ function App() {
       document.getElementById("block3").style.display = "none";
       document.getElementById("block4").style.display = "block";
     } else if (Number(event.key) < 10) {
+      event.key = 'none';
+      //Number(event.key) < 10
+      //event.key === '-' | event.key === '+'
       document.getElementById("popup-background").style.display = "none";
     }
   }
