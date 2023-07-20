@@ -117,7 +117,8 @@
   right: 0px;
   position: absolute;
   pointer-events: none;
-  animation: top-seconds-timer-move 11.5s infinite linear;
+  animation: top-seconds-timer-move 11.5s infinite;
+  animation-timing-function: linear;
   animation-play-state: paused;
   animation-direction: normal;
 }

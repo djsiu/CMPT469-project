@@ -15,6 +15,9 @@ function App() {
     duration: 0,
   });
   const [play, setplay] = useState(false);
+  const [skippingForward, setSkippingForward] = useState(false);
+  const [skippingBackward, setSkippingBackward] = useState(false);
+  const [timeSkipForward, setTimeSkipForward] = useState(0);
   const playerRef = useRef(0);
 
   //used for playlist functionality
@@ -52,23 +55,69 @@ function App() {
   const _onReady = (event) => {
     videoElement = event;
   };
-
+  var timeToStart
   function handleInput(event) {
     console.log(event.key);
     if (document.getElementById("popup-background").style.display === "none") {
+      setSkippingBackward(false);
+      setSkippingForward(false);
       if (event.key === "z") {
         console.log("Play");
         setplay(true);
+        setTimeSkipForward(0);
       } else if (event.key === "x") {
         console.log("Pause");
         setplay(false);
+        setTimeSkipForward(0);
       } else if (event.key === "n") {
         handlePlaylist(0);
         restartAnimation();
+        setTimeSkipForward(0);
       } else if (event.key === "m") {
         handlePlaylist(1);
         restartAnimation();
+        setTimeSkipForward(0);
       }
+      else if (event.key === "-"){
+        console.log('backward');
+        timeToStart = Math.round(
+                    (playerRef && playerRef.current
+                    ? playerRef.current.getCurrentTime()
+                    : "00:00") * 100
+                ) / 100
+        playerRef?.current.seekTo(timeToStart - 1 >= 0 ? timeToStart - 1 : 0  , 'seconds');
+    } else if (event.key === "+"){
+        console.log('forward');
+        timeToStart = Math.round(
+            (playerRef && playerRef.current
+            ? playerRef.current.getCurrentTime()
+            : "00:00") * 100
+        ) / 100
+        playerRef?.current.seekTo(timeToStart + 1 <= duration ? timeToStart + 1 : duration , 'seconds');
+	}
+	// else if (event.key === "m"){
+	// 	if (i + 1 >= listSize)
+	// 		i = 0
+	// 	else 
+	// 		i += 1
+	// 	setVideoLink(videoLinks[i]);
+	// } else if (event.key === "n"){
+	// 	if (i - 1 < 0)
+	// 		i = listSize - 1
+	// 	else 
+	// 		i -= 1
+	// 	setVideoLink(videoLinks[i]);
+	// } 
+	else if ( Number(event.key) < 10 ) {
+    if(document.getElementById("popup-background").style.display = "none"){
+      setTimeSkipForward(Number(event.key));
+      console.log('the time is');
+      console.log(timeSkipForward);
+      console.log('so....');
+    }
+    var skipToTime = Number(event.key) != 0 ? (duration * Number(event.key))/9 : 0
+        playerRef.current.seekTo(skipToTime, 'seconds');
+     }
     }
 
     // handle incrementing playlist
@@ -111,7 +160,19 @@ function App() {
     }
     if (playerRef.current.getCurrentTime() > 0) {
       document.getAnimations().forEach((animation) => {
+        console.log('here');
+        console.log(timeSkipForward);
         if (play === true) {
+          console.log(document.getElementById('animated-timer').style.animationDuration);
+          // if(timeSkipForward > 0){
+          //   //document.getElementById('animated-timer').style.animation
+
+          //   document.getElementById('animated-timer').style.animationDuration = (11.5 - timeSkipForward);
+          //   console.log(document.getElementById('animated-timer').style.animationDuration);
+          //   console.log(11.5 - timeSkipForward);
+          // }
+          //document.getElementById('animated-timer').style.animationDirection = 'normal';
+          //document.getElementById('animated-timer').style.animationTimingFunction = 'steps(11, start)';
           animation.play();
         } else {
           animation.pause();
@@ -154,7 +215,7 @@ function App() {
       document.getElementById("block2").style.display = "none";
       document.getElementById("block3").style.display = "none";
       document.getElementById("block4").style.display = "block";
-    } else if ((event.key === "-") | (event.key === "+")) {
+    } else if (Number(event.key) < 10) {
       document.getElementById("popup-background").style.display = "none";
     }
   }
@@ -339,3 +400,4 @@ function App() {
 }
 
 export default App;
+
