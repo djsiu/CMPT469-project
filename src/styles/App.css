@@ -33,7 +33,7 @@
 }
 
 .seconds-text{
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .current-youtube-video{
@@ -52,13 +52,16 @@
 
 .test-current-youtube-video{
   width: 100%;
+  opacity: 40%;
+  height: 140px;
+  object-fit: contain;
 }
 
-.test-current-youtube-video-tint{
-  margin-left: 5px;
-  margin-right: 5px;
+.current-small-video-tint{
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
   background-color: #125862;
-  opacity: 60%;
   pointer-events: none;
 }
 
@@ -102,20 +105,40 @@
   margin: 2rem;
 }
 
-.top-seconds-timer,
-.top-horizontal-timer,
 .bottom-horizontal-timer{
   width: 100%;
   position: absolute;
   top: 2px;
-}
-
-.top-horizontal-timer{
-  top: -3px;
   pointer-events: none;
 }
 
 .top-seconds-timer{
   top: -30px;
+  right: 0px;
+  position: absolute;
   pointer-events: none;
+  animation: top-seconds-timer-move 11.5s infinite linear;
+  animation-play-state: paused;
+  animation-direction: normal;
+}
+
+.video-player-background{
+  position: relative;
+}
+
+.pause-gesture-instruction{
+  display: none;
+}
+
+.swipe-gesture-instruction{
+  display: none;
+}
+
+.rotate-gesture-instruction{
+  display: none;
+}
+
+@keyframes top-seconds-timer-move {
+  from {right: 0px;}
+  to {right: -2100px;}
 }
