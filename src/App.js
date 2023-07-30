@@ -107,12 +107,19 @@ function App() {
 	// 	setVideoLink(videoLinks[i]);
 	// } 
 	else if ( Number(event.key) < 10 ) {
-    // if(document.getElementById("popup-background").style.display = "none"){
-    //   setTimeSkipForward(Number(event.key));
-    //   console.log('the time is');
-    //   console.log(timeSkipForward);
-    //   console.log('so....');
-    // }
+     if(document.getElementById("popup-background").style.display = "none"){
+       setTimeSkipForward(Number(event.key));
+       document.getAnimations().forEach((animation) => {
+        animation.cancel();
+        document.getElementById('animated-timer').style.animationDelay= '-'+ event.key +'s';
+        if(play){
+          animation.play();
+        } else {
+          animation.play();
+          animation.pause();
+        }
+       })
+     }
     var skipToTime = Number(event.key) != 0 ? (duration * Number(event.key))/9 : 0
         playerRef.current.seekTo(skipToTime, 'seconds');
      }
@@ -158,19 +165,8 @@ function App() {
     }
     if (playerRef.current.getCurrentTime() > 0) {
       document.getAnimations().forEach((animation) => {
-        console.log('here');
         console.log(timeSkipForward);
         if (play === true) {
-          console.log(document.getElementById('animated-timer').style.animationDuration);
-          // if(timeSkipForward > 0){
-          //   //document.getElementById('animated-timer').style.animation
-
-          //   document.getElementById('animated-timer').style.animationDuration = (11.5 - timeSkipForward);
-          //   console.log(document.getElementById('animated-timer').style.animationDuration);
-          //   console.log(11.5 - timeSkipForward);
-          // }
-          //document.getElementById('animated-timer').style.animationDirection = 'normal';
-          //document.getElementById('animated-timer').style.animationTimingFunction = 'steps(11, start)';
           animation.play();
         } else {
           animation.pause();
@@ -185,10 +181,12 @@ function App() {
       if (play === true) {
         console.log("true");
         animation.cancel();
+        document.getElementById('animated-timer').style.animationDelay= '0s';
         animation.play();
       } else {
         console.log("false");
         animation.cancel();
+        document.getElementById('animated-timer').style.animationDelay= '0s';
         animation.play();
         animation.pause();
       }
@@ -215,8 +213,6 @@ function App() {
       document.getElementById("block4").style.display = "block";
     } else if (Number(event.key) < 10) {
       event.key = 'none';
-      //Number(event.key) < 10
-      //event.key === '-' | event.key === '+'
       document.getElementById("popup-background").style.display = "none";
     }
   }
